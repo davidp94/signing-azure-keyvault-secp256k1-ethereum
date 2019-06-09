@@ -1,4 +1,7 @@
 import secp256k1
+from eth_account.internal.transactions import encode_transaction, serializable_unsigned_transaction_from_dict
+
+from utils import public_key_to_address
 
 CURVE_ORDER = 115792089237316195423570985008687907852837564279074904382605163141518161494337
 HALF_CURV_ORDER = 57896044618658097711785492504343953926418782139537452191302581570759080747168
@@ -83,6 +86,22 @@ def convert_json_key_to_public_key_bytes(json_key):
     return pubkey
 
 
+def sign_keyvault(client, vault_url, key_name, key_version, tx, chain_id=0):
+    unsigned_tx = serializable_unsigned_transaction_from_dict(tx)
+    unsigned_tx_hash = unsigned_tx.hash()
+    key_bundle = client.get_key(vault_url, key_name, key_version)
+    json_key = key_bundle.key
+    pubkey = convert_json_key_to_public_key_bytes(json_key)
+    address_signer = public_key_to_address(pubkey[1:])
+
+    sig_resp = client.sign(vault_url, key_name, key_version, 'ECDSA256', unsigned_tx_hash)
+
+    vrs = convert_azure_secp256k1_signature_to_vrs(pubkey, unsigned_tx_hash, sig_resp.result, chain_id)
+
+    ret_signed_transaction = encode_transaction(unsigned_tx, vrs)
+    return address_signer, ret_signed_transaction
+
+
 if __name__ == '__main__':
     msg_hash_hex = "e9074b82e0119a67dfd0d35b7dafda9099e6ceb5ae6714dd654b2302084ed4c2"
     pub_key = "0426d9a4764551121fe3b7760a41e563a0bcbe59a52443b819427532afbd3f8ac8e794d705a48fac6cdb64c5453149938d4cca2545ed9fb99ec98b7c13f6680d57"
@@ -94,3 +113,4 @@ if __name__ == '__main__':
 
     vrs = convert_azure_secp256k1_signature_to_vrs(pub_key_bytes, msg_hash_bytes, sig_bytes)
     print(vrs)
+
