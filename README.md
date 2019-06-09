@@ -1,6 +1,8 @@
 # signing-azure-keyvault-secp256k1-ethereum
 step by step tutorial to sign ethereum transaction using azure keyvault, web3py and python3
 
+Tests: ![Build](https://travis-ci.org/davidp94/signing-azure-keyvault-secp256k1-ethereum.svg?branch=master)
+
 ## Credits
 
 Javascript version: https://github.com/tmarkovski/ethereumjs-tx-keyvault/
