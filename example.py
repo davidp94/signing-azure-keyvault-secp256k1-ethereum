@@ -3,7 +3,7 @@ from azure.keyvault import KeyVaultClient, KeyVaultAuthentication
 from ethtoken.abi import EIP20_ABI
 from web3 import Web3, HTTPProvider
 
-from azure_utils import sign_keyvault
+from azure_keyvault_ethereum_py import sign_keyvault
 from config import CLIENT_ID, PASSWORD, TENANT_ID, VAULT_URL, KEY_NAME, KEY_VERSION
 
 
