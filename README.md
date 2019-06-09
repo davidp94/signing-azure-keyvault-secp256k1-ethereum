@@ -1,8 +1,21 @@
 # signing-azure-keyvault-secp256k1-ethereum
-step by step tutorial to sign ethereum transaction using azure keyvault and python3
+step by step tutorial to sign ethereum transaction using azure keyvault, web3py and python3
 
+## Credits
+
+Javascript version: https://github.com/tmarkovski/ethereumjs-tx-keyvault/
 
 # Dependencies
+
+Python 3 and requirements:
+
+```
+pip install -r requirements.txt
+```
+
+## Known issues
+
+Some crypto-related python libraries require some special dependencies
 
 Ubuntu:
 
@@ -17,11 +30,7 @@ brew install openssl libtool pkg-config automake
 export LDFLAGS="-L$(brew --prefix openssl)/lib" CFLAGS="-I$(brew --prefix openssl)/include"
 ```
 
-Python 3:
-
-```
-pip install -r requirements.txt
-```
+# Tutorial
 
 ## Create a Service Principal that would have access to your key
 
