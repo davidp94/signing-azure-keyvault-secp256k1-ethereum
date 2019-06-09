@@ -49,11 +49,11 @@ Login on the Azure Portal ( https://portal.azure.com/ )
 
 ![Your Key Vault](https://raw.githubusercontent.com/davidp94/signing-azure-keyvault-secp256k1-ethereum/master/static/4-hsm-keys.png)
 
-- Create a new key
+- Create a new key and select SECP256k1 options
 
 ![Create a key](https://raw.githubusercontent.com/davidp94/signing-azure-keyvault-secp256k1-ethereum/master/static/5-create-a-key.png)
 
-- Select SECP256k1 options
+- Done
 
 ![Key Details](https://raw.githubusercontent.com/davidp94/signing-azure-keyvault-secp256k1-ethereum/master/static/6-key-details-id.png)
 
