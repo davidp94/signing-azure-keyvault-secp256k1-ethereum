@@ -1,0 +1,8 @@
+CLIENT_ID = 'xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+PASSWORD = 'xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+TENANT_ID = 'xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+
+VAULT_URL = 'https://xyz.vault.azure.net/'
+KEY_NAME = 'id-1'
+KEY_VERSION = 'abbabababbabbabababababababababd'
