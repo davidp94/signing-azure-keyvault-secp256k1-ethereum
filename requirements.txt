@@ -1,4 +1,4 @@
 azure-keyvault==1.1.0
 web3==4.9.2
 ethtoken==0.0.1a4
-azure-keyvault-ethereum-py==0.1
+azure-keyvault-ethereum-py==0.2
